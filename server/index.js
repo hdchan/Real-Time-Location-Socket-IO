@@ -65,8 +65,8 @@ io.on('connection', function (clientSocket) {
 			}
 		}
 		console.log(userList)
-		callback(userList)
-//     	io.emit("userList", userList);
+		
+    	io.emit("locationsWereUpdated", userList);
     	
     });
     

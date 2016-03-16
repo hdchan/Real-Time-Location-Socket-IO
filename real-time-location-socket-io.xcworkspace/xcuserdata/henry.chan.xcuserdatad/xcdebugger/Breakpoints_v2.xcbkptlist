@@ -20,28 +20,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "real-time-location-socket-io/ViewController.swift"
-            timestampString = "479839955.955158"
+            timestampString = "479847856.906686"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "locationManager(_:didUpdateLocations:)"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "handleLocationsWereUpdated(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "real-time-location-socket-io/SocketIOManager.swift"
-            timestampString = "479839969.453754"
+            timestampString = "479847966.276181"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "updateUserLocation(_:completionHandler:)"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "listenForOtherMessages()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

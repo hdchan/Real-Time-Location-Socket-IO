@@ -21,6 +21,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         manager.delegate = self
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleLocationsWereUpdated:", name: "locationsWereUpdated", object: nil)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -72,36 +74,38 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 //            manager.startUpdatingLocation()
 //        }
 //    }
-
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        SocketIOManager.sharedInstance.updateUserLocation(locations[0]) { (userList) -> Void in
+    
+    func handleLocationsWereUpdated(notification: NSNotification) {
+        let userList = notification.object as! [[String: AnyObject]]
+//        print("got ack list")
+        print(userList)
+        for user in userList {
             
-            print("got ack list")
-            print(userList)
-            for user in userList {
-                
-                let id = user["id"] as! String
-                
-                let lat = CLLocationDegrees(user["coordinates"]!!["lat"] as! NSNumber)
-                let long = CLLocationDegrees(user["coordinates"]!!["long"] as! NSNumber)
-                
-                let coordinates = CLLocationCoordinate2D(latitude: lat, longitude: long)
-                
-                if self.pins[id] == nil {
-                    let nickname = user["nickname"] as! String
-                    let annotation = MKPointAnnotation()
-                    annotation.title = nickname
-                    self.pins[id] = annotation
-                    self.mapView.addAnnotation(annotation)
-                }
-                
-                let pin = self.pins[id]
-                pin?.coordinate = coordinates
-     
-                
+            let id = user["id"] as! String
+            
+            let lat = CLLocationDegrees(user["coordinates"]!["lat"] as! NSNumber)
+            let long = CLLocationDegrees(user["coordinates"]!["long"] as! NSNumber)
+            
+            let coordinates = CLLocationCoordinate2D(latitude: lat, longitude: long)
+            
+            if self.pins[id] == nil {
+                let nickname = user["nickname"] as! String
+                let annotation = MKPointAnnotation()
+                annotation.title = nickname
+                self.pins[id] = annotation
+                self.mapView.addAnnotation(annotation)
             }
             
+            let pin = self.pins[id]
+            pin?.coordinate = coordinates
+            
+            
         }
+
+    }
+
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        SocketIOManager.sharedInstance.updateUserLocation(locations[0])
     }
     
 }

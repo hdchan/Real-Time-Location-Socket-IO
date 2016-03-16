@@ -33,14 +33,20 @@ class SocketIOManager {
             completionHandler(userList: dataArray[0] as! [[String: AnyObject]])
         }
         
-//        listenForOtherMessages()
+        listenForOtherMessages()
+        
+
     }
     
-    func updateUserLocation(location:CLLocation, completionHandler:(userList:[AnyObject]!) -> Void) {
+    func updateUserLocation(location:CLLocation) {
         let coordinates = ["lat":location.coordinate.latitude, "long":location.coordinate.longitude]
-        socket.emitWithAck("userLocationUpdated", coordinates)(timeoutAfter: 0) {data in
-            
-            completionHandler(userList: data[0] as! [[String: AnyObject]])
+        socket.emit("userLocationUpdated", coordinates)
+    }
+    
+    func listenForOtherMessages() {
+        socket.on("locationsWereUpdated") {( dataArray, ack) -> Void in
+            NSNotificationCenter.defaultCenter().postNotificationName("locationsWereUpdated", object: dataArray[0])
+//            completionHandler(userList: dataArray[0] as! [[String: AnyObject]])
         }
     }
 }
