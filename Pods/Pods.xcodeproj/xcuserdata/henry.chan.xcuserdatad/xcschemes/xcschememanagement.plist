@@ -4,30 +4,29 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Notification - watchKitApp.xcscheme</key>
+		<key>Pods.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>1</integer>
 		</dict>
-		<key>real-time-location-socket-io.xcscheme</key>
+		<key>Socket.IO-Client-Swift.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
-			<integer>0</integer>
-		</dict>
-		<key>watchKitApp.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>9D0070661C988552004FD0A0</key>
+		<key>0488EF451A2B5575F6B5166B2BE4BB89</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9D07E3CF1C98966100D99EE3</key>
+		<key>A787C50BB638F76ED0EE6AED918E9110</key>
 		<dict>
 			<key>primary</key>
 			<true/>
