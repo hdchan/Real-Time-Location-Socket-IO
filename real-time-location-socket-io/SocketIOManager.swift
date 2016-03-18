@@ -14,7 +14,7 @@ class SocketIOManager {
     
     static let sharedInstance = SocketIOManager()
     
-    var socket = SocketIOClient(socketURL: NSURL(string: "http://10.6.0.81:3000")!, options: [.Log(true), .ForcePolling(true)])
+    var socket = SocketIOClient(socketURL: NSURL(string: "http://localhost:3000")!, options: [.Log(true), .ForcePolling(true)])
     
     func connect () {
         

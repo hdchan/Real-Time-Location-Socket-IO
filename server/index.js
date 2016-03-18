@@ -1,14 +1,25 @@
-var app = require('http').createServer(handler)
+/*var app = require('http').createServer(handler)
 var io = require('socket.io')(app);
-var fs = require('fs');
+var fs = require('fs');*/
+
+var express = require('express')
+  , http = require('http');
+
+var app = express();
+var server = http.createServer(app);
+var io = require('socket.io').listen(server);
 
 var userList = [];
 
-app.listen(3000, function(){
-  console.log('Listening on *:3000');
+
+app.get('/', function(req, res){
+	res.sendFile('index.html');
 });
 
-function handler (req, res) {
+server.listen(3000, function(){
+  console.log('Listening on *:3000');
+});
+/*function handler (req, res) {
   fs.readFile(__dirname + '/index.html',
   function (err, data) {
     if (err) {
@@ -19,7 +30,7 @@ function handler (req, res) {
     res.writeHead(200);
     res.end(data);
   });
-}
+}*/
 
 io.on('connection', function (clientSocket) {
 	io.emit('connected', 'testing');
