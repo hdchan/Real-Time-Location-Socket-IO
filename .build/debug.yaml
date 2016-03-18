@@ -1,0 +1,26 @@
+client:
+  name: swift-build
+tools: {}
+targets:
+  default: ["<real-time-location-socket-io.module>", "<real-time-location-socket-io.exe>"]
+  test: []
+commands: 
+  <real-time-location-socket-io.module>:
+    tool: swift-compiler
+    executable: /Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2016-03-01-a.xctoolchain/usr/bin/swiftc
+    module-name: realtimelocationsocketio
+    module-output-path: /Users/henry.chan/Desktop/real-time-location-socket-io/.build/debug/realtimelocationsocketio.swiftmodule
+    inputs: []
+    outputs: ["<real-time-location-socket-io.module>", "/Users/henry.chan/Desktop/real-time-location-socket-io/.build/debug/realtimelocationsocketio.build/main.swift.o"]
+    import-paths: /Users/henry.chan/Desktop/real-time-location-socket-io/.build/debug
+    temps-path: /Users/henry.chan/Desktop/real-time-location-socket-io/.build/debug/realtimelocationsocketio.build
+    objects: ["/Users/henry.chan/Desktop/real-time-location-socket-io/.build/debug/realtimelocationsocketio.build/main.swift.o"]
+    other-args: ["-j8", "-Onone", "-g", "-D", SWIFT_PACKAGE, "-enable-testing", "-F", /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks, "-target", "x86_64-apple-macosx10.10", "-sdk", /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk]
+    sources: ["/Users/henry.chan/Desktop/real-time-location-socket-io/Sources/main.swift"]
+    is-library: false
+  <real-time-location-socket-io.exe>:
+    tool: shell
+    description: Linking real-time-location-socket-io
+    inputs: ["<real-time-location-socket-io.module>"]
+    outputs: ["<real-time-location-socket-io.exe>", "/Users/henry.chan/Desktop/real-time-location-socket-io/.build/debug/real-time-location-socket-io"]
+    args: ["/Library/Developer/Toolchains/swift-DEVELOPMENT-SNAPSHOT-2016-03-01-a.xctoolchain/usr/bin/swiftc", "-emit-executable", "-g", "-target", "x86_64-apple-macosx10.10", "-sdk", /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk, "-o", "/Users/henry.chan/Desktop/real-time-location-socket-io/.build/debug/real-time-location-socket-io", "/Users/henry.chan/Desktop/real-time-location-socket-io/.build/debug/realtimelocationsocketio.build/main.swift.o"]

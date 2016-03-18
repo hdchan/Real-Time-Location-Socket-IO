@@ -27,7 +27,7 @@ class SocketIOManager {
     
     
     func connectToServerWithNickname(nickname: String, completionHandler: (userList: [[String: AnyObject]]!) -> Void) {
-        socket.emit("connectUser", nickname)
+        socket.emit("connectUser", UIDevice.currentDevice().name)
         
         socket.on("userList") { ( dataArray, ack) -> Void in
             completionHandler(userList: dataArray[0] as! [[String: AnyObject]])
@@ -39,8 +39,8 @@ class SocketIOManager {
     }
     
     func updateUserLocation(location:CLLocation) {
-        let coordinates = ["lat":location.coordinate.latitude, "long":location.coordinate.longitude]
-        socket.emit("userLocationUpdated", coordinates)
+        let data = ["deviceName":UIDevice.currentDevice().name, "lat":location.coordinate.latitude, "long":location.coordinate.longitude]
+        socket.emit("userLocationUpdated", data)
     }
     
     func listenForOtherMessages() {

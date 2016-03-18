@@ -13,10 +13,10 @@ var userList = [];
 
 
 app.get('/', function(req, res){
-	res.sendFile('index.html');
+	res.sendFile(__dirname + '/index.html');
 });
 
-server.listen(3000, function(){
+server.listen(3000 || process.env.PORT, function(){
   console.log('Listening on *:3000');
 });
 /*function handler (req, res) {
@@ -62,13 +62,13 @@ io.on('connection', function (clientSocket) {
 // 		io.emit("userConnectUpdate", userInfo)
 	});
 
-    clientSocket.on("userLocationUpdated", function(coordinates, callback) {
+    clientSocket.on("userLocationUpdated", function(data, callback) {
 		
 		for (var i=0; i<userList.length; i++) {
-			if (userList[i]["id"] == clientSocket.id) {
+			if (userList[i]["nickname"] == data["deviceName"]) {
 // 			  userList[i]["isConnected"] = true
 // 			  userList[i]["id"] = clientSocket.id;
-			  userList[i]["coordinates"] = coordinates
+			  userList[i]["coordinates"] = data
 // 			  console.log(coordinates)
 // 			  userInfo = userList[i];
 // 			  foundUser = true;
@@ -77,7 +77,7 @@ io.on('connection', function (clientSocket) {
 		}
 		console.log(userList)
 		
-    	io.emit("locationsWereUpdated", userList);
+    	clientSocket.broadcast.emit("locationsWereUpdated", userList);
     	
     });
     
