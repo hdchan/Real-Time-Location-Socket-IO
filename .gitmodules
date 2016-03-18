@@ -1,0 +1,3 @@
+[submodule "server"]
+	path = server
+	url = github:hdchan/Real-Time-Map-Socket-IO-Server.git
