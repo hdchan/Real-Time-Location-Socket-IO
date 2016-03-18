@@ -40,6 +40,7 @@
 			socket.on("locationsWereUpdated",function(userList){
 			console.log(userList[0]["coordinates"]["lat"])
 			marker.setPosition({lat: userList[0]["coordinates"]["lat"], lng: userList[0]["coordinates"]["long"]})
+			map.panTo( new google.maps.LatLng( userList[0]["coordinates"]["lat"], userList[0]["coordinates"]["long"] ) );
 		});
 	</script>
   </body>

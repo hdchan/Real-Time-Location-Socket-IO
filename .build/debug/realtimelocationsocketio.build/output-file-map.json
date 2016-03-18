@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/Users/henry.chan/Desktop/real-time-location-socket-io/.build/debug/realtimelocationsocketio.build/master.swiftdeps"
+  },
+  "/Users/henry.chan/Desktop/real-time-location-socket-io/Sources/main.swift": {
+    "dependencies": "/Users/henry.chan/Desktop/real-time-location-socket-io/.build/debug/realtimelocationsocketio.build/main.d",
+    "object": "/Users/henry.chan/Desktop/real-time-location-socket-io/.build/debug/realtimelocationsocketio.build/main.swift.o",
+    "swiftmodule": "/Users/henry.chan/Desktop/real-time-location-socket-io/.build/debug/realtimelocationsocketio.build/main~partial.swiftmodule",
+    "swift-dependencies": "/Users/henry.chan/Desktop/real-time-location-socket-io/.build/debug/realtimelocationsocketio.build/main.swiftdeps"
+  }
+}
